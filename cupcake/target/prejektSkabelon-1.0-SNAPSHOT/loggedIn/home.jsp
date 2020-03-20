@@ -4,7 +4,7 @@
 <%@include file="../includes/header3.inc"%>
 
 
-<h1>Velkommen til hjem</h1>
+<h1>Velkommen til hjem logged ind</h1>
 
 
 

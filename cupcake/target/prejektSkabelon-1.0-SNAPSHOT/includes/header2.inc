@@ -294,7 +294,8 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form action="/examples/actions/confirmation.php" method="post">
+                        <!-- Link til når man logger ind -->
+                        <form action="loggedIn/home.jsp" method="post">
                             <p class="hint-text">Sign in with your social media account</p>
                             <div class="form-group social-btn clearfix">
                                 <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
