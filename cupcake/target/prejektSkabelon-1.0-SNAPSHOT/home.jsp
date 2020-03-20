@@ -4,8 +4,7 @@
 <%@include file="includes/header2.inc"%>
 
 
-<h1>Velkommen til about dudu</h1>
-<h1>Velkommen til about dudu</h1>
+<h1>Velkommen til hjem dudu</h1>
 
 
 

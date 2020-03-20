@@ -5,7 +5,6 @@
 
 
 <h1>Velkommen til about dudu</h1>
-<h1>Velkommen til about dudu</h1>
 
 
 

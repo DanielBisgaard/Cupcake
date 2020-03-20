@@ -1,11 +1,10 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="includes/header2.inc"%>
+<%@include file="../includes/header3.inc"%>
 
 
-<h1>Velkommen til about dudu</h1>
-<h1>Velkommen til about dudu</h1>
+<h1>Velkommen til about</h1>
 
 
 
@@ -19,4 +18,4 @@
     </body>
 </html>
 
-<%@include file="includes/footer.inc"%>
+<%@include file="../includes/footer.inc"%>
