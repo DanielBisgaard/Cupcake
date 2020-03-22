@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import DBAccess.UserMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
