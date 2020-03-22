@@ -295,18 +295,13 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form action="#" method="post">
-                            <p class="hint-text">Sign in with your social media account</p>
-                            <div class="form-group social-btn clearfix">
-                                <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
-                                <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
-                            </div>
-                            <div class="or-seperator"><b>or</b></div>
+                        <form name="login" action="FrontController" method="post">
+                        <input type="hidden" name="taget" value="login">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" required="required">
+                                <input type="text" class="form-control" placeholder="Username" required="required" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" required="required">
+                                <input type="password" name"password" class="form-control" placeholder="Password" required="required">
                             </div>
                             <input type="submit" class="btn btn-primary btn-block" value="Login">
                             <div class="form-footer">
@@ -344,6 +339,3 @@
 </nav>
 <img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
 
-
-</body>
-</html>
