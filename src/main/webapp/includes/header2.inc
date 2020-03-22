@@ -301,7 +301,7 @@
                                 <input type="text" class="form-control" placeholder="Username" required="required" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" name"password" class="form-control" placeholder="Password" required="required">
+                                <input type="password" class="form-control" placeholder="Password" required="required" name="password">
                             </div>
                             <input type="submit" class="btn btn-primary btn-block" value="Login">
                             <div class="form-footer">
@@ -318,7 +318,7 @@
                         <form action="FrontController" method="post">
                             <p class="hint-text">Fill in this form to create your account!</p>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" required="required">
+                                <input type="text" class="form-control" placeholder="Email" required="required">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="Password" required="required">
