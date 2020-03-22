@@ -5,7 +5,7 @@
 
 
 
-<h1>Velkommen til index????</h1>
+<h1>Velkommen til login side</h1>
 
 
         <c:if test = "${requestScope.error!= null}" >
@@ -14,7 +14,5 @@
             ${requestScope.error}
 
         </c:if>
-    </body>
-</html>
 
 <%@include file="includes/footer.inc"%>

@@ -277,6 +277,7 @@
             <span class="icon-bar"></span>
         </button>
     </div>
+
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
@@ -294,7 +295,7 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form action="/examples/actions/confirmation.php" method="post">
+                        <form action="#" method="post">
                             <p class="hint-text">Sign in with your social media account</p>
                             <div class="form-group social-btn clearfix">
                                 <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
@@ -319,7 +320,7 @@
                 <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form action="/examples/actions/confirmation.php" method="post">
+                        <form action="FrontController" method="post">
                             <p class="hint-text">Fill in this form to create your account!</p>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Username" required="required">
@@ -342,7 +343,7 @@
     </div>
 </nav>
 <img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
-<link rel="stylesheet" href="includes/style.css">
+
 
 </body>
 </html>
