@@ -290,7 +290,7 @@
 
         </ul>
 
-        <a class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+        <c align="right">${sessionScope.email}</c>
 
             </li>
         </ul>

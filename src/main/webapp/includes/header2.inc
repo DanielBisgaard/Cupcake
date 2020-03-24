@@ -342,5 +342,5 @@
         </ul>
     </div>
 </nav>
-<img src="../images/cupcake2.jpg" alt="Olskers Cupcakes">
+<img src="images/cupcake2.jpg" alt="Olskers Cupcakes">
 
