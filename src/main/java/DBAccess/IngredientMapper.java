@@ -1,7 +1,6 @@
 package DBAccess;
 
 import FunctionLayer.Top;
-import FunctionLayer.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

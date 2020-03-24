@@ -1,11 +1,15 @@
-
+<%--
+    Document   : index
+    Created on : Aug 22, 2017, 2:01:06 PM
+    Author     : kasper
+--%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="includes/header2.inc"%>
 
+<!DOCTYPE html>
 
 
-<h1>Velkommen til login side</h1>
 
 
         <c:if test = "${requestScope.error!= null}" >
@@ -14,5 +18,5 @@
             ${requestScope.error}
 
         </c:if>
-
-<%@include file="includes/footer.inc"%>
+    </body>
+</html>

@@ -32,7 +32,6 @@ public class FrontController extends HttpServlet {
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
         try {
-            String taget = request.getParameter("taget");
             Command action = Command.from( request );
             String view = action.execute( request, response );
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );

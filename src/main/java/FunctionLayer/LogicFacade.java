@@ -13,13 +13,7 @@ public class LogicFacade {
     } 
 
     public static User createUser( String email, String password ) throws LoginSampleException {
-        User user = new User(email, password, "Customer", 0);
-        UserMapper.createUser( user );
-        return user;
-    }
-
-    public static User createEmployee( String email, String password ) throws LoginSampleException {
-        User user = new User(email, password, "Employee", 0);
+        User user = new User(email, password, "customer");
         UserMapper.createUser( user );
         return user;
     }
