@@ -1,7 +1,7 @@
 package FunctionLayer;
 
 public class Top {
-    public Top(String ingredient, int price) {
+    public Top( String ingredient, int price) {
         this.ingredient = ingredient;
         this.price = price;
     }

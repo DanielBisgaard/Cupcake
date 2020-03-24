@@ -4,8 +4,9 @@
 <%@include file="includes/header2.inc"%>
 
 
+<h1>Velkommen til about dudu</h1>
 
-<h1>Velkommen til login side</h1>
+
 
 
         <c:if test = "${requestScope.error!= null}" >
@@ -14,5 +15,7 @@
             ${requestScope.error}
 
         </c:if>
+    </body>
+</html>
 
 <%@include file="includes/footer.inc"%>
