@@ -9,7 +9,7 @@
 
 <!DOCTYPE html>
 
-
+<a href="employeeRegister.jsp">employee</a>
 
 
         <c:if test = "${requestScope.error!= null}" >
