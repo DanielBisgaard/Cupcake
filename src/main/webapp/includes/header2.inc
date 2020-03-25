@@ -258,6 +258,93 @@
                 display: block;
             }
         }
+        .square {
+            float:left;
+            position: relative;
+            width: 30%;
+            padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+            margin:1.66%;
+            background-color:#1E1E1E;
+            overflow:hidden;
+        }
+
+        .content {
+            position:absolute;
+            height:90%; /* = 100% - 2*5% padding */
+            width:90%; /* = 100% - 2*5% padding */
+            padding: 5%;
+
+        }
+        .table{
+            display:table;
+            width:100%;
+            height:100%;
+        }
+        .table-cell{
+            display:table-cell;
+            vertical-align:middle;
+        }
+
+        /*  For responsive images */
+
+        .content .rs{
+            width:auto;
+            height:auto;
+            max-height:90%;
+            max-width:100%;
+        }
+        /*  For responsive images as background */
+
+        .bg{
+            background-position:center center;
+            background-repeat:no-repeat;
+            background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+            color:#fff;
+        }
+
+
+        .img1{
+            background-image: url("images/chocolate.jfif");
+        }
+        .img2{
+            background-image: url("images/vanilla.png");
+        }
+        .img3{
+            background-image: url("images/nutmeg.jfif");
+        }
+        .img4{
+            background-image: url("images/pistachio.jfif");
+        }
+        .img5{
+            background-image: url("images/almond.jfif");
+        }
+        .img6{
+            background-image: url("images/chocolate2.jfif");
+        }
+        .img7{
+            background-image: url("images/blueberry.jfif");
+        }
+        .img8{
+            background-image: url("images/rasberry.jfif");
+        }
+        .img9{
+            background-image: url("images/crispy.jfif");
+        }
+        .img10{
+            background-image: url("images/strawberry.jfif");
+        }
+        .img11{
+            background-image: url("images/rum_raisin.jfif");
+        }
+        .img12{
+            background-image: url("images/orange.png");
+        }
+        .img13{
+            background-image: url("images/lemon.jfif");
+        }
+        .img14{
+            background-image: url("images/bluecheese.jfif");
+        }
     </style>
     <script type="text/javascript">
         // Prevent dropdown menu from closing when click inside the form
@@ -341,6 +428,6 @@
 
 <div class="container">
 
-<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
+<p style="text-align:center;"><img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes"></p>
 
 

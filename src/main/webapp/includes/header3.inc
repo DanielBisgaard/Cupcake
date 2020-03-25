@@ -30,6 +30,9 @@
         body{
             font-family: 'Varela Round', sans-serif;
         }
+
+
+
         .form-control {
             box-shadow: none;
             font-weight: normal;
@@ -259,6 +262,9 @@
                 display: block;
             }
         }
+
+
+
 .square {
     float:left;
     position: relative;
@@ -283,20 +289,8 @@
 }
 .table-cell{
     display:table-cell;
-    vertical-align:middle;
+    vertical-align:top;
 }
-/*  For list */
-ul{
-    text-align:left;
-    margin:5% 0 0;
-    padding:0;
-    list-style-position:inside;
-}
-li{
-    margin: 0 0 0 5%;
-    padding:0;
-}
-
 
 /*  For responsive images */
 
@@ -315,6 +309,9 @@ li{
     color:#fff;
 }
 
+
+
+
 .img1{
     background-image: url("images/chocolate.jfif");
 }
@@ -329,6 +326,33 @@ li{
 }
 .img5{
     background-image: url("images/almond.jfif");
+}
+.img6{
+    background-image: url("images/chocolate2.jfif");
+}
+.img7{
+    background-image: url("images/blueberry.jfif");
+}
+.img8{
+    background-image: url("images/rasberry.jfif");
+}
+.img9{
+    background-image: url("images/crispy.jfif");
+}
+.img10{
+    background-image: url("images/strawberry.jfif");
+}
+.img11{
+    background-image: url("images/rum_raisin.jfif");
+}
+.img12{
+    background-image: url("images/orange.png");
+}
+.img13{
+    background-image: url("images/lemon.jfif");
+}
+.img14{
+    background-image: url("images/bluecheese.jfif");
 }
     </style>
     <script type="text/javascript">
@@ -358,17 +382,18 @@ li{
                 <li class="nav-item"><a href="FrontController?taget=about" class="nav-link">About</a></li>
 
                 <li class="nav-item active"><a href="FrontController?taget=shop" class="nav-link">Shop</a></li>
-
-                <li class="nav-item active"><a href="FrontController?taget=home" class="nav-link">${sessionScope.email}</a></li>
-
-
         </ul>
 
 
+            <ul class="nav navbar-nav navbar-right ml-auto">
+                    <li class="nav-item">
+                    <li class="nav-item active"><a href="FrontController?taget=home" class="nav-link">${sessionScope.email}</a></li>
+                    </li>
+            </ul>
 
     </div>
 </nav>
-<div class="container">
-<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes" class="img-fluid mb-4">
 
+<div class="container">
+<p style="text-align:center;"><img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes"></p>
 

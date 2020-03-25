@@ -15,7 +15,6 @@
             ${requestScope.error}
 
         </c:if>
-    </body>
-</html>
+
 
 <%@include file="includes/footer.inc"%>

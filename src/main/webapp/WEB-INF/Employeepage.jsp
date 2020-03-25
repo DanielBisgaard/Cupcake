@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="../includes/header3.inc" %>
 
-<h1>Hello ${sessionScope.email} </h1>
+<h1 class="text-center">Hello ${sessionScope.email} </h1>
 
 <div class="row">
 
