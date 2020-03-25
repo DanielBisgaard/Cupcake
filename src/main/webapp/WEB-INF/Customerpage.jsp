@@ -10,7 +10,7 @@
 
 
 
-        <h1>Hello ${sessionScope.email} </h1>
+        <h1 class="text-center">Hello ${sessionScope.email} </h1>
 
 
 

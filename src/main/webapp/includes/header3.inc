@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="includes/style.css">
@@ -296,9 +297,7 @@
 
     </div>
 </nav>
-<img src="images/cupcake2.jpg" alt="Olskers Cupcakes">
-<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
-<link rel="stylesheet" href="includes/style.css">
+<div class="container">
+<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes" class="img-fluid mb-4">
 
-</body>
-</html>
+

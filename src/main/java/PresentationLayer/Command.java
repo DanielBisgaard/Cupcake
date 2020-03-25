@@ -14,14 +14,10 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put("registerEmployee", new RegisterEmployee());
-
-
-       /* commands.put( "overview", new Overview() );
-
+        commands.put( "overview", new Overview() );
         commands.put( "home", new Home() );
         commands.put( "about", new About() );
         commands.put( "shop", new Shop() );
-*/
     }
 
     static Command from( HttpServletRequest request ) {

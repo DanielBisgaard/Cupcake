@@ -339,7 +339,7 @@
     </div>
 </nav>
 
-<img src="images/cupcake2.jpg" class="img-fluid" alt="Olskers Cupcakes">
+<div class="container">
 
 <img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
 

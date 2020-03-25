@@ -5,9 +5,9 @@
 
 
 
-<a href="employeeRegister.jsp">employee</a>
 
-<h1>Velkommen til login side</h1>
+
+<h1 class="text-center">Velkommen til login siden</h1>
 
 
 
