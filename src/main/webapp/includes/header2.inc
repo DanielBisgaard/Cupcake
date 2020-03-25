@@ -286,7 +286,7 @@
 
             <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
 
-            <li class="nav-item active"><a href="store.jsp" class="nav-link">Store</a></li>
+            <li class="nav-item active"><a href="store.jsp" class="nav-link">Shop</a></li>
 
         </ul>
 
