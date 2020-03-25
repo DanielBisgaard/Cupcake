@@ -15,14 +15,21 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put("registerEmployee", new RegisterEmployee());
 
+
+        commands.put( "overview", new Overview() );
+        commands.put( "registeremployee", new RegisterEmployee() );
+        commands.put( "home", new Home() );
+        commands.put( "about", new About() );
+        commands.put( "shop", new Shop() );
+
     }
 
     static Command from( HttpServletRequest request ) {
-        String targetName = request.getParameter( "target" );
+        String TagetName = request.getParameter( "taget" );
         if ( commands == null ) {
             initCommands();
         }
-        return commands.getOrDefault(targetName, new UnknownCommand() );   // unknowncommand er default.
+        return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 

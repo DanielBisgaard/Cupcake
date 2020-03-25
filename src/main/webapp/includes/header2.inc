@@ -295,18 +295,17 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form name="login" action="FrontController" method="POST">
-                            <input type="hidden" name="target" value="login">
+                        <form name="login" action="FrontController" method="post">
+                        <input type="hidden" name="taget" value="login">
                             <div class="form-group">
-                            Email:
-                            <input type="text" class="form-control" name="email" placeholder="E-mail" required="required">
-                             </div>
-                            <div class="form-group">
-                            Password:
-                            <input type="password" class="form-control" name="password" placeholder="password" required="required">
+                                <input type="text" class="form-control" placeholder="Username" required="required" name="email">
                             </div>
                             <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-block" value="Submit">
+                                <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Login">
+                            <div class="form-footer">
+                                <a href="#">Forgot Your password?</a>
                             </div>
                         </form>
                     </li>
@@ -316,25 +315,22 @@
                 <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
-                        <form name="register" action="FrontController" method="POST">
+                        <form action="FrontController" method="post">
+                        <input type="hidden" name="taget" value="register">
                             <p class="hint-text">Fill in this form to create your account!</p>
-                            <input type="hidden" name="target" value="register">
                             <div class="form-group">
-                                Email:
-                                <input type="text" class="form-control" name="email" placeholder="E-mail" required="required">
+                                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                             </div>
                             <div class="form-group">
-                            Password:
-                            <input type="password"  class="form-control" name="password1" placeholder="password" required="required">
-                                <br>
-                            Retype Password:
-                            <input type="password"  class="form-control" name="password2" placeholder="password" required="required">
-
+                                <input type="password" class="form-control" name="password1" placeholder="Password" required="required">
                             </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required="required">
+                            </div>
+                            <div class="form-group">
                                 <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-                            <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-block" value="Submit">
                             </div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Sign up">
                         </form>
                     </li>
                 </ul>
@@ -342,5 +338,9 @@
         </ul>
     </div>
 </nav>
+
 <img src="images/cupcake2.jpg" class="img-fluid" alt="Olskers Cupcakes">
+
+<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
+
 

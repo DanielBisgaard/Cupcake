@@ -4,10 +4,8 @@
 <%@include file="includes/header2.inc"%>
 
 
+<h1>Velkommen til hjem dudu</h1>
 
-<a href="employeeRegister.jsp">employee</a>
-
-<h1>Velkommen til login side</h1>
 
 
 
@@ -17,5 +15,7 @@
             ${requestScope.error}
 
         </c:if>
+    </body>
+</html>
 
 <%@include file="includes/footer.inc"%>

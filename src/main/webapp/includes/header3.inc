@@ -277,24 +277,28 @@
             <span class="icon-bar"></span>
         </button>
     </div>
-
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
 
-            <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="FrontController?taget=home" class="nav-link">Home</a></li>
 
-            <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="FrontController?taget=about" class="nav-link">About</a></li>
 
-            <li class="nav-item active"><a href="store.jsp" class="nav-link">Store</a></li>
+                <li class="nav-item active"><a href="FrontController?taget=shop" class="nav-link">Shop</a></li>
+
+                <li class="nav-item active"><a href="FrontController?taget=home" class="nav-link">${sessionScope.email}</a></li>
+
 
         </ul>
 
-        <c align="right">${sessionScope.email}</c>
 
-            </li>
-        </ul>
+
     </div>
 </nav>
 <img src="images/cupcake2.jpg" alt="Olskers Cupcakes">
+<img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes">
+<link rel="stylesheet" href="includes/style.css">
 
+</body>
+</html>

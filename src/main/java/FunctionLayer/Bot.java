@@ -1,7 +1,7 @@
 package FunctionLayer;
 
 public class Bot {
-    public Bot(String ingredient, int price) {
+    public Bot( String ingredient, int price) {
         this.ingredient = ingredient;
         this.price = price;
     }
