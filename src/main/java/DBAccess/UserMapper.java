@@ -96,29 +96,7 @@ public class UserMapper {
         return brugere;
     }
 
-    public static User getUserCredit(String email) throws LoginSampleException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE email=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, email);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String role = rs.getString("role");
-                int credit = rs.getInt("credit");
-                int userid = rs.getInt("userid");
-                String password = rs.getString("password");
-                User user = new User(email, role, password, credit);
-                user.setId(userid);
-                return user;
-            } else {
-                throw new LoginSampleException("Could not validate user");
-            }
-        } catch (ClassNotFoundException | SQLException | LoginSampleException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
-    }
-
+   
 
     public static User addCredit(String email, int credit) throws LoginSampleException {
         try {
