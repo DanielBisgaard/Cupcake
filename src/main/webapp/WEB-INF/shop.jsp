@@ -9,7 +9,7 @@
 
 <form action="FrontController" method="post">
 
-    <input type="hidden" name="taget" value="home">
+    <input type="hidden" name="taget" value="cart">
 
 
     <div class="form-group">
@@ -18,8 +18,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="chocolate" >
-                            <label for="chocolate">
+                            <input type="radio" name="toppen" id="1" value="1">
+                            <label for="1">
                                 <div class="test">
                                     Chokolade
                                 </div>
@@ -35,8 +35,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="blueberry">
-                            <label for="blueberry">
+                            <input type="radio" name="toppen" id="2" value="2">
+                            <label for="2">
                                 <div class="test">
                                     Blåbær
                                 </div>
@@ -52,8 +52,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="rasberry">
-                            <label for="rasberry">
+                            <input type="radio" name="toppen" id="3" value="3">
+                            <label for="3">
                                 <div class="test">
                                     Hindbær
                                 </div>
@@ -69,8 +69,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="crispy">
-                            <label for="crispy">
+                            <input type="radio" name="toppen" id="4" value="4">
+                            <label for="4">
                                 <div class="test">
                                     Knas
                                 </div>
@@ -86,8 +86,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="strawberry">
-                            <label for="strawberry">
+                            <input type="radio" name="toppen" id="5" value="5">
+                            <label for="5">
                                 <div class="test">
                                     Jordbær
                                 </div>
@@ -103,8 +103,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="rumraisin">
-                            <label for="rumraisin">
+                            <input type="radio" name="toppen" id="6" value="6">
+                            <label for="6">
                                 <div class="test">
                                     Rom / rosin
                                 </div>
@@ -120,8 +120,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="orange">
-                            <label for="orange">
+                            <input type="radio" name="toppen" id="7" value="7">
+                            <label for="7">
                                 <div class="test">
                                     Appelsin
                                 </div>
@@ -137,8 +137,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="lemon">
-                            <label for="lemon">
+                            <input type="radio" name="toppen" id="8" value="8">
+                            <label for="8">
                                 <div class="test">
                                     Citron
                                 </div>
@@ -155,8 +155,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="bluecheese">
-                            <label for="bluecheese">
+                            <input type="radio" name="toppen" id="9" value="9">
+                            <label for="9">
                                 <div class="test">
                                     Blue cheese
                                 </div>
@@ -185,8 +185,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="choko">
-                            <label for="choko">
+                            <input type="radio" name="bunden" id="chokolade" value="chokolade">
+                            <label for="chokolade">
                                 <div class="test">
                                     Chokolade
                                 </div>
@@ -203,7 +203,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="vanilla">
+                            <input type="radio" name="bunden" id="vanilla" value="vanilla">
                             <label for="vanilla">
                                 <div class="test">
                                     Vanilje
@@ -221,7 +221,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="nutmeg">
+                            <input type="radio" name="bunden" id="nutmeg"  value="nutmeg">
                             <label for="nutmeg">
                                 <div class="test">
                                     Muskat
@@ -239,7 +239,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="pistachio">
+                            <input type="radio" name="bunden" id="pistachio" value="pistachio">
                             <label for="pistachio">
                                 <div class="test">
                                     Pistacie
@@ -257,7 +257,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="almond">
+                            <input type="radio" name="bunden" id="almond"  value="Almond">
                             <label for="almond">
                                 <div class="test">
                                     Mandel
@@ -283,8 +283,8 @@
     <div class="col-md-4">
 
         <div class="form-group">
-            <label for="amount">Hvor mange af denne cupcake vil du have?</label>
-            <input type="number" class="form-control" id="amount" name="amount">
+            <label for="count">Hvor mange af denne cupcake vil du have?</label>
+            <input type="number" class="form-control" id="count" name="amount">
         </div>
 
         <div class="text-center">
