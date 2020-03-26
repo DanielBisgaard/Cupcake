@@ -38,10 +38,20 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Tilføj bruger</button>
             </div>
+ </form>
+        <form action="FrontController" method="post">
+            <input type="hidden" name="taget" value="addCredit">
+            <p class="hint-text">Fill in this form to create your account!</p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="credit" placeholder="credit" required="required">
+            </div>
 
-
-
-
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Tilføj bruger</button>
+            </div>
         </form>
     </div>
 </div>

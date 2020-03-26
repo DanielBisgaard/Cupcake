@@ -34,6 +34,7 @@ public class AddCredit extends Command {
         HttpSession session = request.getSession();
         session.setAttribute("email", email);
         session.setAttribute("credit", credit);
-        return "done";
+
+        return "Employee" + "page";
     }
 }
