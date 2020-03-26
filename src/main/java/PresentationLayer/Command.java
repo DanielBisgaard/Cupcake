@@ -13,6 +13,7 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
+        commands.put("addCredit", new AddCredit());
         commands.put("registerEmployee", new RegisterEmployee());
         commands.put( "overview", new Overview() );
         commands.put( "home", new Home() );
