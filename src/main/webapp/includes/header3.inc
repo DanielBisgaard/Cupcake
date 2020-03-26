@@ -271,9 +271,10 @@
     width: 30%;
     padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
-    background-color:#1E1E1E;
+    background-color: #fff;
     overflow:hidden;
 }
+
 
 .content {
     position:absolute;
@@ -354,12 +355,64 @@
 .img14{
     background-image: url("images/bluecheese.jfif");
 }
+
+input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 5px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 5px;
+}
+.radio label:before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 100%;
+  vertical-align: -3px;
+  border: 2px solid #000;
+  padding: 0.13em;
+  background-color: transparent;
+  background-clip: content-box;
+}
+.radio label {
+  margin-right: 1em;
+}
+.radio input:hover + label:before {
+  border-color: blue;
+}
+.radio input:checked + label:before {
+  background-color: #3dbfef;
+  border-color: #3dbfef;
+}
+.radio label:before {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+div.test
+{
+width: 115px;
+padding: 10px;
+border: 2px solid #000;
+border-radius: 15px;
+-moz-border-radius: 15px;
+background-color: #3dbfef;
+border-color: #3dbfef;
+}
+
+
     </style>
     <script type="text/javascript">
         // Prevent dropdown menu from closing when click inside the form
         $(document).on("click", ".navbar-right .dropdown-menu", function(e){
             e.stopPropagation();
         });
+
+
     </script>
 </head>
 <body>
