@@ -16,6 +16,6 @@
 
 
 
-        You are now logged in as a customer of our wonderful site.
+<p class="text-center">You are now logged in as a customer of our wonderful site.</p>
 
 <%@include file="../includes/footer.inc"%>

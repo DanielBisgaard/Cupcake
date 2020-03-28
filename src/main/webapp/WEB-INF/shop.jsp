@@ -9,7 +9,7 @@
 
 <form action="FrontController" method="post">
 
-    <input type="hidden" name="taget" value="cart">
+    <input type="hidden" name="taget" value="addtocart">
 
     <input type="hidden" name="email" value="${sessionScope.email}">
 
@@ -169,13 +169,9 @@
             </div>
         </div>
     </div>
+    <hr></hr>
 
-    <br>
-    <br>
-    <br>
-    <br><br>
-    <br><br>
-    <br>
+
     <h2 class="text-center">Vælg cupcake bund</h2>
 
 
@@ -187,7 +183,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="chokolade" value="chokolade">
+                            <input type="radio" name="bunden" id="chokolade" value="Chocolate">
                             <label for="chokolade">
                                 <div class="test">
                                     Chokolade
@@ -205,7 +201,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="vanilla" value="vanilla">
+                            <input type="radio" name="bunden" id="vanilla" value="Vanilla">
                             <label for="vanilla">
                                 <div class="test">
                                     Vanilje
@@ -223,7 +219,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="nutmeg"  value="nutmeg">
+                            <input type="radio" name="bunden" id="nutmeg"  value="Nutmeg">
                             <label for="nutmeg">
                                 <div class="test">
                                     Muskat
@@ -241,8 +237,8 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="pistachio" value="pistachio">
-                            <label for="pistachio">
+                            <input type="radio" name="bunden" id="pistacio" value="Pistacio">
+                            <label for="pistacio">
                                 <div class="test">
                                     Pistacie
                                 </div>

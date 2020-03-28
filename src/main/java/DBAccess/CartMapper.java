@@ -10,7 +10,6 @@ public class CartMapper {
     public static void createProduct(Product p) throws LoginSampleException {
 
         try {
-
             //Nu checker vi om den cupcake vi prøver at lave allerede er i databasen
             Connection con = Connector.connection();
             String query = "Select ProductID from OlskerCupCakes.Product where TopID = ? and BotID = ?";
@@ -30,19 +29,31 @@ public class CartMapper {
             }
             if(x==0){
                 String SQL = "INSERT INTO OlskerCupCakes.Product (TopID, BotID) VALUES (?, ?)";
-                PreparedStatement ps = con.prepareStatement(SQL);
+                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, p.getTopID());
                 ps.setInt(2, p.getBotID());
                 ps.executeUpdate();
 
-                ResultSet ids = ps.executeQuery();
+
+                ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 int ProductID = ids.getInt(1);
                 p.setProductID(ProductID);
                 System.out.println("Denne cupcake er aldrig blevet bestilt før!");
             }
             else{
-                System.out.println("Denne cupcake er bestilt før");
+                Connection connectionowich = Connector.connection();
+                String quereee = "Select ProductID from OlskerCupCakes.Product where TopID = ? and BotID = ?";
+                PreparedStatement patstatement = connectionowich.prepareStatement(quereee);
+                patstatement.setInt(1, p.getTopID());
+                patstatement.setInt(2, p.getBotID());
+
+
+
+                ResultSet reees = pstatement.executeQuery();
+                while ( reees.next() ) {
+                    p.setProductID(reees.getInt("ProductID"));
+                }
             }
 
 
@@ -109,10 +120,19 @@ public class CartMapper {
                 Product produkt = new Product();
                 produkt = getProduct(productid);
                 int pris = produkt.getPrice();
+                productid = produkt.getProductID();
                 String topingrediens = produkt.getTopIngredient();
                 String bundingrediens = produkt.getBotIngredient();
 
-                OrderLine OL = new OrderLine(orderlineid, orderID, productid, count, pris, bundingrediens, topingrediens);
+                OrderLine OL = new OrderLine();
+                OL.setOrderLineID(orderlineid);
+                OL.setProductID(productid);
+                OL.setOrderID(orderID);
+                OL.setCount(count);
+                OL.setPrice(pris);
+                OL.setBotIngredient(bundingrediens);
+                OL.setTopIngredient(topingrediens);
+
                 linjer.add(OL);
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -141,27 +161,30 @@ public class CartMapper {
         }
 
     }
-    public static void createOrder(Order o) throws LoginSampleException {
+    public static void createOrder(Order o) throws LoginSampleException, SQLException, ClassNotFoundException {
 
         try {
-            //Først checker vi om kunden har ordre i sin kurv, som ikke er betalt.
             Connection con = Connector.connection();
-            String query = "Select OrderID from OlskerCupCakes.Product where UserID = ? and paidTime = 'null'";
-            PreparedStatement pstatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            String query = "Select OrderID from OlskerCupCakes.orders where UserID = ? and PaidTime is null;";
+            PreparedStatement pstatement = con.prepareStatement(query);
             pstatement.setInt(1, o.getUserID());
 
 
-            pstatement.executeQuery();
 
-            ResultSet res = pstatement.getGeneratedKeys();
 
-            //Hvis kurven har ordre der ikke er betalt vil x blive over 0
+            ResultSet res = pstatement.executeQuery();
+            int orderID = 0;
             int x = 0;
-            while ( res.next() ) {
-                x = res.getInt("OrderID");
-
+            while (res.next()) {
+                orderID = res.getInt("OrderID");
+                x ++;
             }
+
+            o.setOrderID(orderID);
+
             if(x==0){
+                
+
                 String SQL = "INSERT INTO OlskerCupCakes.Orders (UserID) VALUES (?)";
                 PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, o.getUserID());
@@ -172,17 +195,16 @@ public class CartMapper {
                 ids.next();
                 int OrderID = ids.getInt(1);
                 o.setOrderID(OrderID);
-
             }
-            else{
-
-                System.out.println("Ordre linjer skal smides i den ordre kunden ikke har betalt for endnu");
-            }
-
 
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
+
+
+
+
+    }
+
+
     }
     public static Product getProduct(int pID) {
         Product product = new Product();
@@ -215,9 +237,79 @@ public class CartMapper {
         return product;
     }
 
+    public static OrderLine getOrderLine(int pID) {
+        OrderLine OL = new OrderLine();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price, orderproductlink.Count, product.ProductID, orderproductlink.OrderLineID from product join bot on product.botID=bot.botID join top on product.topID=top.topID join orderproductlink on product.ProductID = orderproductlink.ProductID where product.ProductID=?;";
 
-    //select bot.Ingredient, top.Ingredient, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=3;
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, pID);
+
+            ResultSet rs = ps.executeQuery();
+            String TopIngredient="";
+            String BotIngredient="";
+            int Price = 0;
+            int count = 0;
+            int orderlineid = 0;
+            while (rs.next()) {
+                TopIngredient = rs.getString("TI");
+                BotIngredient = rs.getString("BI");
+                Price = rs.getInt("price");
+                count = rs.getInt("Count");
+                orderlineid = rs.getInt("OrderLineID");
+            }
+            OL.setTopIngredient(TopIngredient);
+            OL.setBotIngredient(BotIngredient);
+            OL.setPrice(Price);
+            OL.setCount(count);
+            OL.setOrderLineID(orderlineid);
+
+
+
+        } catch (ClassNotFoundException | SQLException ex) {
+
+        }
+        return OL;
+    }
+    public static void createOrderLine(int count, int productID, int orderID) throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO OlskerCupCakes.orderproductlink (Count, ProductID, OrderID) VALUES (?,?,?);";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, count);
+            ps.setInt(2, productID);
+            ps.setInt(3, orderID);
+
+            ps.executeUpdate();
+
+
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    public static void DeleteOrderLine(int orderlineid) throws LoginSampleException, SQLException, ClassNotFoundException {
+
+        try {
+
+            Connection con = Connector.connection();
+            String query = "delete from OlskerCupCakes.orderproductlink where OrderLineID=?;";
+            PreparedStatement pstatement = con.prepareStatement(query);
+            pstatement.setInt(1, orderlineid);
+
+            pstatement.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+        //select bot.Ingredient, top.Ingredient, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=3;
 
 
 
 }
+

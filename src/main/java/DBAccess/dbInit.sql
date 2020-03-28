@@ -39,9 +39,9 @@ CREATE TABLE `Orders` (
 
 LOCK TABLES `Orders` WRITE;
 INSERT INTO `Orders` VALUES
-(1,2,'2020-01-01 20:23:14'),
+(1,1,'2020-01-01 20:23:14'),
 (2,2,'2020-01-02 02:02:12'),
-(3,2,'2020-01-02 12:30:30'),
+(3,3,'2020-01-02 12:30:30'),
 (4,3,null),
 (5,2,null);
 UNLOCK TABLES;

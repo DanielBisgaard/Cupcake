@@ -27,6 +27,21 @@ public class LogicFacade {
         UserMapper.createUser(employee);
         return employee;
     }
+    public static void createOrderLine(int TopID, String BotID, int count, String email) throws LoginSampleException {
+        //Får fat i produkt id
+        Product cupcake = new Product();
+        cupcake = LogicFacade.createProduct(TopID, BotID);
+        int productID = cupcake.getProductID();
+
+        //Får fat i ordre id
+        Order o = LogicFacade.createOrder(email);
+        int orderID = o.getOrderID();
+
+        //Sæt ordrelinje i databasen
+        CartMapper.createOrderLine(count, productID, orderID);
+
+    }
+
     public static Product createProduct(int TopID, String BotID ) throws LoginSampleException {
         Product cupcake = new Product();
         User user = new User();
@@ -40,7 +55,13 @@ public class LogicFacade {
         User user = UserMapper.getUser(email);
         int id = user.getId();
         Order o = new Order(id);
-        CartMapper.createOrder(o);
+        try {
+            CartMapper.createOrder(o);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return o;
     }
     public static int convertBundToInt(String Bunden) throws LoginSampleException {
