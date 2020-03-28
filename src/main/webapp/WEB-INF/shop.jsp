@@ -11,6 +11,8 @@
 
     <input type="hidden" name="taget" value="cart">
 
+    <input type="hidden" name="email" value="${sessionScope.email}">
+
 
     <div class="form-group">
         <div class="square bg img6">
@@ -284,7 +286,7 @@
 
         <div class="form-group">
             <label for="count">Hvor mange af denne cupcake vil du have?</label>
-            <input type="number" class="form-control" id="count" name="amount">
+            <input type="number" class="form-control" id="count" name="count">
         </div>
 
         <div class="text-center">

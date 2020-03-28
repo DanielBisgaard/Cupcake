@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-
+Halloooo
+<c:forEach items="${orderlines}" var="item">
+    ${item}<br>
+</c:forEach>
 </body>
 </html>

@@ -2,13 +2,17 @@ package FunctionLayer;
 
 public class Product {
     private int ProductID;
-    private String BotID;
+    private int BotID;
     private int TopID;
+    private int Price;
+    private String TopIngredient;
+    private String BotIngredient;
 
-    public Product(int productID, String botID, int topID) {
+    public Product(int productID, int botID, int topID, int price) {
         ProductID = productID;
         BotID = botID;
         TopID = topID;
+        Price = price;
     }
 
     public Product() {
@@ -22,15 +26,39 @@ public class Product {
         return ProductID;
     }
 
+    public String getTopIngredient() {
+        return TopIngredient;
+    }
+
+    public void setTopIngredient(String topIngredient) {
+        TopIngredient = topIngredient;
+    }
+
+    public String getBotIngredient() {
+        return BotIngredient;
+    }
+
+    public void setBotIngredient(String botIngredient) {
+        BotIngredient = botIngredient;
+    }
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public void setPrice(int price) {
+        Price = price;
+    }
+
     public void setProductID(int productID) {
         ProductID = productID;
     }
 
-    public String getBotID() {
+    public int getBotID() {
         return BotID;
     }
 
-    public void setBotID(String botID) {
+    public void setBotID(int botID) {
         BotID = botID;
     }
 
