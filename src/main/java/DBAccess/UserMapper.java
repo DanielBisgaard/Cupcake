@@ -3,13 +3,14 @@ package DBAccess;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
 import com.mysql.cj.protocol.Resultset;
-
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  The purpose of UserMapper is to...
@@ -17,7 +18,11 @@ import java.util.ArrayList;
  @author kasper
  */
 public class UserMapper {
+    private DatabaseConnector connector = new DatabaseConnector();
 
+    public UserMapper(DataSource ds) {
+        connector.setDataSource(ds);
+    }
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -66,8 +71,8 @@ public class UserMapper {
         }
     }
 
-    public static ArrayList getUsers() {
-        ArrayList<User> brugere = new ArrayList<User>();
+    public static List<User> getUsers() {
+       List<User> users = new ArrayList<User>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE role='Customer'";
@@ -87,16 +92,15 @@ public class UserMapper {
                 User user = new User(email, password, role, credit);
                 user.setId(userid);
 
-                brugere.add(user);
+                users.add(user);
+
             }
 
 
         } catch (ClassNotFoundException | SQLException ex) {
 
         }
-        return brugere;
+        return users;
     }
-
-
 
 }

@@ -10,7 +10,9 @@
 <h1 class="text-center">Velkommen til login siden</h1>
 
 
-
+<c:forEach items = "${users}" var = "user">
+    <p>Users = ${user}</p>
+</c:forEach>
         <c:if test = "${requestScope.error!= null}" >
 
            <h2>Error ! </h2>

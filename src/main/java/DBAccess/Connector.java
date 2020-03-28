@@ -4,16 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- The purpose of Connector is to...
-
- @author kasper
- */
 public class Connector {
 
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/olskercupcakes?serverTimezone=CET&useSSL=false";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "klon3903202";
 
     private static Connection singleton;
 

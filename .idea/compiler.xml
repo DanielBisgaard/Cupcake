@@ -20,7 +20,7 @@
       <module name="Projektskabelon" options="-endorseddirs &quot;C:/Skole Cph/Github/Cupcake/target/endorsed&quot;" />
       <module name="Projektskabelon-master" options="-endorseddirs C:/Skole Cph/Github/Cupcake/target/endorsed" />
       <module name="cupcake" options="-endorseddirs &quot;C:\Skole Cph\cupcake\target/endorsed&quot;" />
-      <module name="prejektSkabelon" options="-endorseddirs C:\Users\baske\OneDrive\Dokumenter\GitHub\Cupcake\target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs C:\Users\Bruger\Desktop\GitHub\Cupcake\target/endorsed" />
     </option>
   </component>
 </project>
