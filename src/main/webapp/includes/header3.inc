@@ -30,6 +30,45 @@
         body{
             font-family: 'Varela Round', sans-serif;
         }
+        ul.dropdown-cart{
+            min-width:250px;
+        }
+        ul.dropdown-cart li .item{
+            display:block;
+            padding:3px 10px;
+            margin: 3px 0;
+        }
+        ul.dropdown-cart li .item:hover{
+            background-color:#f3f3f3;
+        }
+        ul.dropdown-cart li .item:after{
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+
+        ul.dropdown-cart li .item-left{
+            float:left;
+        }
+        ul.dropdown-cart li .item-left img,
+        ul.dropdown-cart li .item-left span.item-info{
+            float:left;
+        }
+        ul.dropdown-cart li .item-left span.item-info{
+            margin-left:10px;
+        }
+        ul.dropdown-cart li .item-left span.item-info span{
+            display:block;
+        }
+        ul.dropdown-cart li .item-right{
+            float:right;
+        }
+        ul.dropdown-cart li .item-right button{
+            margin-top:14px;
+        }
 
 
 
@@ -120,10 +159,6 @@
         .navbar .nav-item i {
             font-size: 18px;
         }
-        .navbar .dropdown-item i {
-            font-size: 16px;
-            min-width: 22px;
-        }
         .navbar ul.nav li.active a, .navbar ul.nav li.open > a {
             background: transparent !important;
         }
@@ -136,36 +171,12 @@
             color: #fff;
             background: #31bfb1 !important;
         }
-        .navbar .dropdown-menu {
-            border-radius: 1px;
-            border-color: #e5e5e5;
-            box-shadow: 0 2px 8px rgba(0,0,0,.05);
-        }
-        .navbar .nav .dropdown-menu li {
-            color: #999;
-            font-weight: normal;
-        }
-        .navbar .nav .dropdown-menu li a, .navbar .nav .dropdown-menu li a:hover, .navbar .nav .dropdown-menu li a:focus {
-            padding: 8px 20px;
-            line-height: normal;
-        }
+
         .navbar .navbar-form {
             border: none;
         }
-        .navbar .dropdown-menu.form-wrapper {
-            width: 280px;
-            padding: 20px;
-            left: auto;
-            right: 0;
-            font-size: 14px;
-        }
-        .navbar .dropdown-menu.form-wrapper a {
-            color: #33cabb;
-            padding: 0 !important;
-        }
-        .navbar .dropdown-menu.form-wrapper a:hover{
-            text-decoration: underline;
-        }
+
+
         .navbar .form-wrapper .hint-text {
             text-align: center;
             margin-bottom: 15px;
@@ -443,6 +454,76 @@ border-color: #3dbfef;
                     <li class="nav-item active"><a href="FrontController?taget=home" class="nav-link">${sessionScope.email}</a></li>
                     </li>
             </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-cart" role="menu">
+                    <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+                    </li>
+                    <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+                    </li>
+                    <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+                    </li>
+                    <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a class="text-center" href="">View Cart</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
 
     </div>
 </nav>

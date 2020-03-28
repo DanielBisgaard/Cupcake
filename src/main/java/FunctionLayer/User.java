@@ -19,6 +19,10 @@ public class User {
     private String role;
     private int credit;
 
+    public User() {
+
+    }
+
     public String getEmail() {
         return email;
     }

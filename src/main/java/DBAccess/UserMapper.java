@@ -96,6 +96,35 @@ public class UserMapper {
         }
         return brugere;
     }
+    public static User getUser(String email) {
+        User user = new User();
+        try {
+
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE Email=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String role = rs.getString("role");
+                String emailen = rs.getString("email");
+                String password = rs.getString("password");
+                int credit = rs.getInt("credit");
+                int userid = rs.getInt("userid");
+                user = new User(emailen, password, role, credit);
+                user.setId(userid);
+
+
+            }
+
+
+        } catch (ClassNotFoundException | SQLException ex) {
+
+        }
+        return user;
+    }
 
 
 
