@@ -1,15 +1,13 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order_User;
 import FunctionLayer.Product;
 import FunctionLayer.User;
 import com.mysql.cj.protocol.Resultset;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,11 +70,12 @@ public class UserMapper {
         }
     }
 
-    public static List<User> getUsers() {
-        List<User> users = new ArrayList<User>();
+    public static List<Order_User> getOrder_Users() {
+        List<Order_User> OUL = new ArrayList<Order_User>();
+
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE role='Customer'";
+            String SQL = "SELECT users.*, orders.* FROM OlskerCupCakes.Users join orders on users.UserID=orders.UserID WHERE role='Customer';";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -90,10 +89,16 @@ public class UserMapper {
                 String password = rs.getString("password");
                 int credit = rs.getInt("credit");
                 int userid = rs.getInt("userid");
-                User user = new User(email, password, role, credit);
-                user.setId(userid);
+                int orderid = rs.getInt("OrderID");
 
-                users.add(user);
+                java.util.Date date;
+                Date dato = rs.getDate("PaidTime");
+
+
+                Order_User OU = new Order_User(orderid, userid, email, password, role, credit);
+                OU.setPaidTime(dato);
+
+                OUL.add(OU);
 
             }
 
@@ -101,7 +106,7 @@ public class UserMapper {
         } catch (ClassNotFoundException | SQLException ex) {
 
         }
-        return users;
+        return OUL;
     }
 
     public static User getUser(String email) {
@@ -177,6 +182,39 @@ public class UserMapper {
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
+    }
+    public static List<User> getUsers() {
+        List<User> UL = new ArrayList<User>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT users.* FROM OlskerCupCakes.Users;";
+
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String role = rs.getString("role");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                int credit = rs.getInt("credit");
+                int userid = rs.getInt("userid");
+
+                User U = new User(email, password, role, credit);
+
+
+                UL.add(U);
+
+            }
+
+
+        } catch (ClassNotFoundException | SQLException ex) {
+
+        }
+        return UL;
     }
 }
 

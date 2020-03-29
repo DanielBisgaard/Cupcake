@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Order_User;
 import FunctionLayer.User;
 
 import DBAccess.UserMapper;
@@ -18,8 +19,8 @@ public class UserController {
         um = new UserMapper(ds);
     }
 
-    public List<User> getUsers() {
-        return um.getUsers();
+    public List<Order_User> getOrder_Users() {
+        return um.getOrder_Users();
     }
 
 

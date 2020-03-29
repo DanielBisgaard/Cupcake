@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
@@ -97,5 +98,14 @@ public class LogicFacade {
         UserMapper.pay(pris, email, orderid);
 
 
+    }
+
+    public static List<OrderLine> getAllActiveOrderLines() {
+        ArrayList<OrderLine> linjer = new ArrayList<OrderLine>();
+
+
+        linjer = CartMapper.getAllActiveOrderLines();
+
+        return linjer;
     }
 }

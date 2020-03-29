@@ -38,31 +38,57 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Tilføj bruger</button>
             </div>
- </form>
-        <form action="FrontController" method="post">
-            <input type="hidden" name="taget" value="addCredit">
-            <p class="hint-text">Fill in this form to create your account!</p>
-            <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="credit" placeholder="credit" required="required">
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Tilføj bruger</button>
-            </div>
         </form>
     </div>
 </div>
+    <hr></hr>
+<form>
+    <form action="FrontController" method="post">
+        <input type="hidden" name="taget" value="addCredit">
+<div class="row">
+
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+            <p class="hint-text">Sæt konto værdi</p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="amail" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="credit" placeholder="credit" required="required">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Sæt kredit</button>
+            </div>
+
+    </div>
+</div>
+</form>
+    <hr></hr>
+    <form>
+        <form action="FrontController" method="post">
+            <input type="hidden" name="taget" value="activeoverview">
+    <div class="text-center">
+    <label>
+        <button class="btn btn-primary">Aktive ordre</button>
+    </label>
+    </div> </form>
+    <br>
+    <a href="FrontController?taget=overview"><div class="text-center">
+        <label>
+        <button class="btn btn-primary">Ordre</button>
+        </label>
+    </div> </a>
+<br>
+    <a href="FrontController?taget=getusers"><div class="text-center">
+        <label>
+            <button class="btn btn-primary">Brugere</button>
+        </label>
+    </div> </a>
 
 
-<c:if test="${requestScope.error!= null}">
-
-    <h2>Error ! </h2>
-    ${requestScope.error}
-
-</c:if>
 
 
 <%@include file="../includes/footer.inc" %>

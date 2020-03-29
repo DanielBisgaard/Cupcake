@@ -1,7 +1,14 @@
 package FunctionLayer;
 
 public class OrderLine {
-
+    int userID;
+    int OrderLineID;
+    int OrderID;
+    int ProductID;
+    String TopIngredient;
+    String BotIngredient;
+    int price;
+    int count;
 
     public OrderLine(int orderLineID, int orderID, int productID, int count, int price, String BotIngredient, String TopIngredient) {
         OrderLineID = orderLineID;
@@ -12,7 +19,26 @@ public class OrderLine {
         this.TopIngredient = TopIngredient;
         this.price = price;
     }
-    public OrderLine( int count, int price, String BotIngredient, String TopIngredient) {
+    public OrderLine(int orderLineID, int orderID, int productID, int count, int price, String BotIngredient, String TopIngredient, int userid) {
+        OrderLineID = orderLineID;
+        OrderID = orderID;
+        ProductID = productID;
+        this.count = count;
+        this.BotIngredient = BotIngredient;
+        this.TopIngredient = TopIngredient;
+        this.price = price;
+        userID = userid;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public OrderLine(int count, int price, String BotIngredient, String TopIngredient) {
 
         this.count = count;
         this.BotIngredient = BotIngredient;
@@ -23,13 +49,6 @@ public class OrderLine {
 
     }
 
-    int OrderLineID;
-    int OrderID;
-    int ProductID;
-    String TopIngredient;
-    String BotIngredient;
-    int price;
-    int count;
 
     public String getTopIngredient() {
         return TopIngredient;

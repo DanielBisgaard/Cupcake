@@ -346,6 +346,83 @@ public class CartMapper {
         }
         return orderID;
     }
+
+    public static void DeleteOrder(int orderID) {
+        try {
+
+            Connection con = Connector.connection();
+            String query = "delete from OlskerCupCakes.orders where OrderID=?;";
+            PreparedStatement pstatement = con.prepareStatement(query);
+            pstatement.setInt(1, orderID);
+
+            pstatement.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void DeleteOrderLines(int orderid) throws LoginSampleException, SQLException, ClassNotFoundException {
+
+        try {
+
+            Connection con = Connector.connection();
+            String query = "delete from OlskerCupCakes.orderproductlink where OrderID=?;";
+            PreparedStatement pstatement = con.prepareStatement(query);
+            pstatement.setInt(1, orderid);
+
+            pstatement.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static ArrayList<OrderLine> getAllActiveOrderLines() {
+        ArrayList<OrderLine> linjer = new ArrayList<OrderLine>();
+        try {
+            Connection con = Connector.connection();
+            String query = "select orderproductlink.*, orders.* from olskercupcakes.orderproductlink join orders on orderproductlink.OrderID=orders.OrderID  where orders.PaidTime is null;";
+            PreparedStatement prepst = con.prepareStatement( query );
+            ResultSet result = prepst.executeQuery();
+            int orderlineid = 0;
+            int productid = 0;
+            int count = 0;
+            int userID = 0;
+            int orderID = 0;
+            while ( result.next() ) {
+                orderlineid = result.getInt("OrderLineID");
+                productid = result.getInt("ProductID");
+                count = result.getInt("Count");
+                userID = result.getInt("UserID");
+                orderID = result.getInt("OrderID");
+                Product produkt = new Product();
+                produkt = getProduct(productid);
+                int pris = produkt.getPrice();
+                String topingrediens = produkt.getTopIngredient();
+                String bundingrediens = produkt.getBotIngredient();
+
+
+                OrderLine OL = new OrderLine();
+
+                OL.setOrderLineID(orderlineid);
+                OL.setProductID(productid);
+                OL.setOrderID(orderID);
+                OL.setCount(count);
+                OL.setPrice(pris);
+                OL.setBotIngredient(bundingrediens);
+                OL.setTopIngredient(topingrediens);
+                OL.setUserID(userID);
+
+                linjer.add(OL);
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+
+        }
+        return linjer;
+    }
     //select bot.Ingredient, top.Ingredient, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=3;
 
 

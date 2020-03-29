@@ -4,10 +4,11 @@
 <%@page import="java.util.List"%>
 <%@page import="DBAccess.UserController"%>
 <%@page import="FunctionLayer.User"%>
+<%@ page import="FunctionLayer.Order_User" %>
 
 <%
     UserController uc = new UserController(new DataSourceMySql().getDataSource());
-    List<User> users = uc.getUsers();
+    List<Order_User> OUL = uc.getOrder_Users();
     int count = 1;
 %>
 
@@ -29,11 +30,11 @@
 </table>
 
 <script>
-    var userList = [<% for (User user : users) {
+    var OUL = [<% for (Order_User OU : OUL) {
             out.println("[");
             out.println("\"" + count++ + "\",");
 
-            out.println("\"" + user.getEmail() + "\"");
+            out.println("\"" + OU.getEmail() + "\"");
             out.println("],");
         }%>];
     showUsers();

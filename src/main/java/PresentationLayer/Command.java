@@ -15,7 +15,7 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put("addCredit", new AddCredit());
         commands.put("registerEmployee", new RegisterEmployee());
-      //  commands.put( "overview", new Overview() );
+        commands.put( "overview", new Overview() );
         commands.put( "home", new Home() );
         commands.put( "about", new About() );
         commands.put( "shop", new Shop() );
@@ -24,6 +24,14 @@ abstract class Command {
         commands.put( "deleteorderline", new DeleteOrderLine() );
         commands.put( "pay", new Pay() );
         commands.put( "kurv", new Kurv() );
+        commands.put( "logud", new LogOut() );
+        commands.put( "Customerpage", new Customerpage() );
+        commands.put( "Employeepage", new Employeepage() );
+        commands.put( "userlist", new UserList() );
+        commands.put( "deleteorder", new DeleteOrder() );
+        commands.put( "getusers", new GetUsers() );
+        commands.put( "activeoverview", new ActiveOverview() );
+
     }
 
     static Command from( HttpServletRequest request ) {
@@ -34,7 +42,7 @@ abstract class Command {
         return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
+    abstract String execute( HttpServletRequest request, HttpServletResponse response )
             throws LoginSampleException;
 
 }
