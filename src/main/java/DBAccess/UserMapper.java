@@ -1,6 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Product;
 import FunctionLayer.User;
 import com.mysql.cj.protocol.Resultset;
 import javax.sql.DataSource;
@@ -23,6 +24,7 @@ public class UserMapper {
     public UserMapper(DataSource ds) {
         connector.setDataSource(ds);
     }
+
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -38,7 +40,6 @@ public class UserMapper {
             ids.next();
             int userid = ids.getInt(1);
             user.setId(userid);
-
 
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -72,7 +73,7 @@ public class UserMapper {
     }
 
     public static List<User> getUsers() {
-       List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<User>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE role='Customer'";
@@ -102,6 +103,7 @@ public class UserMapper {
         }
         return users;
     }
+
     public static User getUser(String email) {
         User user = new User();
         try {
@@ -132,4 +134,49 @@ public class UserMapper {
         return user;
     }
 
+    public static void pay(int money, String email, int ordreid) throws LoginSampleException {
+        User user = new User(email);
+        try {
+            //Nu checker vi hvor mange penge kunden har på sin konto
+            Connection con = Connector.connection();
+            String query = "Select Credit from OlskerCupCakes.users where Email = ?";
+            PreparedStatement pstatement = con.prepareStatement(query);
+            pstatement.setString(1, email);
+
+
+            pstatement.executeQuery();
+
+            ResultSet res = pstatement.executeQuery();
+
+
+            int userCredit = 0;
+            while (res.next()) {
+                userCredit = res.getInt("Credit");
+
+            }
+
+            //Her trækker vi beløbet kunden skal betale fra kundens konto, for at se om kunden har råd
+            int Credit = userCredit - money;
+
+            //Hvis kunden så har råd trækker vi rent faktisk beløbet fra kontoen her
+            if (Credit > 0) {
+                String SQL = "UPDATE users SET Credit = ? WHERE Email = ?;";
+                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+                ps.setInt(1, userCredit);
+                ps.setString(2, email);
+                ps.executeUpdate();
+
+
+                user.setCredit(userCredit);
+                CartMapper.setPayTime(ordreid);
+
+            } else {
+                throw new LoginSampleException("Penge på konto: " + userCredit + " kr. er ikke nok til at købe den ønskede ordre.. Bed en nede i Olskers Cupcakes om at sætte flere penge ind på din konto hvis du vil have kage. Ja det er sku ret dumt, men vi designer jo bare det system vi bliver bedt om. " + " " + " - vh Albert, Artem og Daniel");
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }
+

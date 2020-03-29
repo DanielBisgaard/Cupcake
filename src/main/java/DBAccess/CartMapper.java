@@ -183,7 +183,7 @@ public class CartMapper {
             o.setOrderID(orderID);
 
             if(x==0){
-                
+
 
                 String SQL = "INSERT INTO OlskerCupCakes.Orders (UserID) VALUES (?)";
                 PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -238,10 +238,11 @@ public class CartMapper {
     }
 
     public static OrderLine getOrderLine(int pID) {
+        //Virker Ikke
         OrderLine OL = new OrderLine();
         try {
             Connection con = Connector.connection();
-            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price, orderproductlink.Count, product.ProductID, orderproductlink.OrderLineID from product join bot on product.botID=bot.botID join top on product.topID=top.topID join orderproductlink on product.ProductID = orderproductlink.ProductID where product.ProductID=?;";
+            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price, orderproductlink.Count, product.ProductID, orderproductlink.OrderLineID, orderproductlink.orderID from product join bot on product.botID=bot.botID join top on product.topID=top.topID join orderproductlink on product.ProductID = orderproductlink.ProductID where product.ProductID=?;";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -307,7 +308,45 @@ public class CartMapper {
         }
 
     }
-        //select bot.Ingredient, top.Ingredient, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=3;
+
+    public static void setPayTime(int ordreid) {
+        Order order = new Order(ordreid);
+        try {
+            Connection con = Connector.connection();
+
+        String SQL = "update orders SET PaidTime = CURRENT_TIMESTAMP where OrderID = ?;";
+        PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, ordreid);
+
+        ps.executeUpdate();
+
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+
+            int time = ids.getInt(1);
+
+// Find ud af hvordan man laver et sql timestamp til java datetime
+        //order.setPaidTime(time);
+
+        } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    }
+    public static int getOrderID(int uID) throws SQLException, ClassNotFoundException {
+        Connection con = Connector.connection();
+        String SQL = "select * from olskercupcakes.orders where UserID=? and PaidTime is null;";
+        PreparedStatement ps = con.prepareStatement(SQL);
+        ps.setInt(1, uID);
+        ResultSet rs = ps.executeQuery();
+        int orderID = 0;
+        while (rs.next()) {
+            orderID = rs.getInt("OrderID");
+        }
+        return orderID;
+    }
+    //select bot.Ingredient, top.Ingredient, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=3;
 
 
 

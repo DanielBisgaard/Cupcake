@@ -1,8 +1,12 @@
 package FunctionLayer;
 
 import DBAccess.CartMapper;
+import DBAccess.Connector;
 import DBAccess.UserMapper;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -78,4 +82,20 @@ public class LogicFacade {
 
 
 
+    public static void pay(int pris, String email) throws LoginSampleException {
+        User user = UserMapper.getUser(email);
+        int id = user.getId();
+        int orderid = 0;
+        try {
+            orderid = CartMapper.getOrderID(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        UserMapper.pay(pris, email, orderid);
+
+
     }
+}

@@ -18,6 +18,7 @@
            <h2>Error ! </h2>
             ${requestScope.error}
 
+
         </c:if>
 
 <%@include file="includes/footer.inc"%>

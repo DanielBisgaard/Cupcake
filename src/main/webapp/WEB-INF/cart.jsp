@@ -47,7 +47,19 @@
     </c:forEach>
 
 </ul>
-<p class="text-center">Sammenlagt pris:<strong> ${count}</strong></p>
+<form action="FrontController" method="get">
+
+
+    <input type="hidden" name="taget" value="pay">
+    <input type="hidden" name="pris" value="${count}">
+    <input type="hidden" name="email" value="${sessionScope.email}">
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Køb Cupcakes!</button>
+    </div>
+</form>
+
+    <p class="text-center">Sammenlagt pris:<strong> ${count}</strong></p>
 
 
 <%@include file="../includes/footer.inc"%>
