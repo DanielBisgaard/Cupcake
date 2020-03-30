@@ -10,6 +10,7 @@ public class Top {
     private String ingredient;
     private int price;
 
+
     public int getPrice() {
         return price;
     }

@@ -478,5 +478,5 @@ border-color: #3dbfef;
 </nav>
 
 <div class="container">
-<p style="text-align:center;"><img src="images/olskercupcakes.jpg" alt="Olskers Cupcakes"></p>
+<p style="text-align:center;"><img src="images/olskercupcakes.jpg" style="max-width:100%;height:auto; alt="Olskers Cupcakes" class></p>
 

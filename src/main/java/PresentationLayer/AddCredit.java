@@ -21,17 +21,19 @@ public class AddCredit extends Command {
             Connection con = Connector.connection();
             String SQL = "UPDATE OlskerCupCakes.Users set Credit=? where Email =?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
-            ps.setString(2, email);
             ps.setInt(1, credit);
+            ps.setString(2, email);
+
             ps.executeUpdate();
 
             ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
+            while (ids.next()){
 
-            int kredit = ids.getInt(1);
+                int kredit = ids.getInt(5);
+                user.setCredit(kredit);
+            }
 
-            user.setCredit(kredit);
+
 
 
 
