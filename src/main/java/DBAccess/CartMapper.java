@@ -28,7 +28,7 @@ public class CartMapper {
 
             }
             if(x==0){
-                String SQL = "INSERT INTO OlskerCupCakes.Product (TopID, BotID) VALUES (?, ?)";
+                String SQL = "INSERT INTO OlskerCupCakes.product (TopID, BotID) VALUES (?, ?)";
                 PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, p.getTopID());
                 ps.setInt(2, p.getBotID());
@@ -43,7 +43,7 @@ public class CartMapper {
             }
             else{
                 Connection connectionowich = Connector.connection();
-                String quereee = "Select ProductID from OlskerCupCakes.Product where TopID = ? and BotID = ?";
+                String quereee = "Select ProductID from OlskerCupCakes.product where TopID = ? and BotID = ?";
                 PreparedStatement patstatement = connectionowich.prepareStatement(quereee);
                 patstatement.setInt(1, p.getTopID());
                 patstatement.setInt(2, p.getBotID());
@@ -75,11 +75,11 @@ public class CartMapper {
             ResultSet rs = ps.executeQuery();
 
             while ( rs.next() ) {
-                String ingredient = rs.getString("ingredient");
-                String email = rs.getString("email");
-                String password = rs.getString("password");
-                int price = rs.getInt("price");
-                int topid = rs.getInt("topid");
+                String ingredient = rs.getString("Ingredient");
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
+                int price = rs.getInt("Price");
+                int topid = rs.getInt("Topid");
                 Top top = new Top(ingredient, price);
                 top.setId(topid);
 
@@ -98,7 +98,7 @@ public class CartMapper {
         try {
             //få fat i orderID
             Connection con = Connector.connection();
-            String SQL = "select * from olskercupcakes.orders where UserID=? and PaidTime is null;";
+            String SQL = "select * from OlskerCupCakes.orders where UserID=? and PaidTime is null;";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setInt(1, uID);
             ResultSet rs = ps.executeQuery();
@@ -106,7 +106,7 @@ public class CartMapper {
             while ( rs.next() ) {
                 orderID = rs.getInt("OrderID");
             }
-            String query = "select * from olskercupcakes.orderproductlink where OrderID=?;";
+            String query = "select * from OlskerCupCakes.orderproductlink where OrderID=?;";
             PreparedStatement prepst = con.prepareStatement( query );
             prepst.setInt(1, orderID);
             ResultSet result = prepst.executeQuery();
@@ -185,7 +185,7 @@ public class CartMapper {
             if(x==0){
 
 
-                String SQL = "INSERT INTO OlskerCupCakes.Orders (UserID) VALUES (?)";
+                String SQL = "INSERT INTO OlskerCupCakes.orders (UserID) VALUES (?)";
                 PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, o.getUserID());
 
@@ -210,7 +210,7 @@ public class CartMapper {
         Product product = new Product();
         try {
             Connection con = Connector.connection();
-            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price from product join bot on product.botID=bot.botID join top on product.topID=top.topID where ProductID=?;";
+            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price from product join bot on product.BotID=bot.BotID join top on product.TopID=top.TopID where ProductID=?;";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -242,7 +242,7 @@ public class CartMapper {
         OrderLine OL = new OrderLine();
         try {
             Connection con = Connector.connection();
-            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price, orderproductlink.Count, product.ProductID, orderproductlink.OrderLineID, orderproductlink.orderID from product join bot on product.botID=bot.botID join top on product.topID=top.topID join orderproductlink on product.ProductID = orderproductlink.ProductID where product.ProductID=?;";
+            String SQL = "select bot.Ingredient as BI, top.Ingredient as TI, sum(bot.Price + top.Price) as price, orderproductlink.Count, product.ProductID, orderproductlink.OrderLineID, orderproductlink.orderID from product join bot on product.BotID=bot.BotID join top on product.TopID=top.TopID join orderproductlink on product.ProductID = orderproductlink.ProductID where product.ProductID=?;";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -384,7 +384,7 @@ public class CartMapper {
         ArrayList<OrderLine> linjer = new ArrayList<OrderLine>();
         try {
             Connection con = Connector.connection();
-            String query = "select orderproductlink.*, orders.* from olskercupcakes.orderproductlink join orders on orderproductlink.OrderID=orders.OrderID  where orders.PaidTime is null;";
+            String query = "select orderproductlink.*, orders.* from OlskerCupCakes.orderproductlink join orders on orderproductlink.OrderID=orders.OrderID  where orders.PaidTime is null;";
             PreparedStatement prepst = con.prepareStatement( query );
             ResultSet result = prepst.executeQuery();
             int orderlineid = 0;
