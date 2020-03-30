@@ -345,6 +345,16 @@
         .img14{
             background-image: url("images/bluecheese.jfif");
         }
+        div.test
+        {
+        width: 115px;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        background-color: #3dbfef;
+        border-color: #3dbfef;
+        }
     </style>
     <script type="text/javascript">
         // Prevent dropdown menu from closing when click inside the form

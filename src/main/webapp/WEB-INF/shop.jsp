@@ -20,7 +20,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="toppen" id="1" value="1">
+                            <input type="radio" name="toppen" id="1" value="1" required>
                             <label for="1">
                                 <div class="test">
                                     Chokolade
@@ -183,7 +183,7 @@
                 <div class="table">
                     <div class="table-cell">
                         <div class="radio">
-                            <input type="radio" name="bunden" id="chokolade" value="Chocolate">
+                            <input type="radio" name="bunden" id="chokolade" value="Chocolate" required>
                             <label for="chokolade">
                                 <div class="test">
                                     Chokolade
@@ -282,7 +282,7 @@
 
         <div class="form-group">
             <label for="count">Hvor mange af denne cupcake vil du have?</label>
-            <input type="number" class="form-control" id="count" name="count">
+            <input type="number" class="form-control" id="count" name="count" required>
         </div>
 
         <div class="text-center">

@@ -39,11 +39,7 @@ CREATE TABLE `Orders` (
 
 LOCK TABLES `Orders` WRITE;
 INSERT INTO `Orders` VALUES
-(1,1,'2020-01-01 20:23:14'),
-(2,2,'2020-01-02 02:02:12'),
-(3,3,'2020-01-02 12:30:30'),
-(4,3,null),
-(5,2,null);
+
 UNLOCK TABLES;
 
 
@@ -98,11 +94,7 @@ CREATE TABLE `Product` (
 
 LOCK TABLES `Product` WRITE;
 INSERT INTO `Product` VALUES
-(1, 4, 1),
-(2, 2, 2),
-(3, 7, 2),
-(4, 6, 5),
-(5, 3, 2);
+
 UNLOCK TABLES;
 
 
@@ -119,10 +111,6 @@ CREATE TABLE `OrderProductLink` (
 
 LOCK TABLES `OrderProductLink` WRITE;
 INSERT INTO `OrderProductLink` VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 2),
-(3, 2, 3, 1),
-(4, 3, 4, 1),
-(5, 4, 2, 4);
+
 UNLOCK TABLES;
 
