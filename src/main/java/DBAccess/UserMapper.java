@@ -26,7 +26,7 @@ public class UserMapper {
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO OlskerCupCakes.Users (email, password, role, credit) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO OlskerCupCakes.users (Email, Password, Role, Credit) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
@@ -48,16 +48,16 @@ public class UserMapper {
     public static User login(String email, String password) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT userid, role, credit FROM OlskerCupCakes.Users "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT UserID, Role, Credit FROM OlskerCupCakes.users "
+                    + "WHERE Email=? AND Password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String role = rs.getString("role");
-                int credit = rs.getInt("credit");
-                int userid = rs.getInt("userid");
+                String role = rs.getString("Role");
+                int credit = rs.getInt("Credit");
+                int userid = rs.getInt("UserID");
                 User user = new User(email, password, role, credit);
                 user.setId(userid);
 
@@ -75,7 +75,7 @@ public class UserMapper {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT users.*, orders.* FROM OlskerCupCakes.Users join orders on users.UserID=orders.UserID WHERE role='Customer';";
+            String SQL = "SELECT users.*, orders.* FROM OlskerCupCakes.users join orders on users.UserID=orders.UserID WHERE Role='Customer';";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -84,11 +84,11 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String role = rs.getString("role");
-                String email = rs.getString("email");
-                String password = rs.getString("password");
-                int credit = rs.getInt("credit");
-                int userid = rs.getInt("userid");
+                String role = rs.getString("Role");
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
+                int credit = rs.getInt("Credit");
+                int userid = rs.getInt("UserID");
                 int orderid = rs.getInt("OrderID");
 
                 java.util.Date date;
@@ -114,18 +114,18 @@ public class UserMapper {
         try {
 
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM OlskerCupCakes.Users WHERE Email=?";
+            String SQL = "SELECT * FROM OlskerCupCakes.users WHERE Email=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String role = rs.getString("role");
-                String emailen = rs.getString("email");
-                String password = rs.getString("password");
-                int credit = rs.getInt("credit");
-                int userid = rs.getInt("userid");
+                String role = rs.getString("Role");
+                String emailen = rs.getString("Email");
+                String password = rs.getString("Password");
+                int credit = rs.getInt("Credit");
+                int userid = rs.getInt("UserID");
                 user = new User(emailen, password, role, credit);
                 user.setId(userid);
 
@@ -188,7 +188,7 @@ public class UserMapper {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT users.* FROM OlskerCupCakes.Users;";
+            String SQL = "SELECT users.* FROM OlskerCupCakes.users;";
 
 
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -197,11 +197,11 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String role = rs.getString("role");
-                String email = rs.getString("email");
-                String password = rs.getString("password");
-                int credit = rs.getInt("credit");
-                int userid = rs.getInt("userid");
+                String role = rs.getString("Role");
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
+                int credit = rs.getInt("Credit");
+                int userid = rs.getInt("UserID");
 
                 User U = new User(email, password, role, credit);
 

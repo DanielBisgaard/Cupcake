@@ -19,7 +19,7 @@ public class AddCredit extends Command {
         User user = new User(email);
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE OlskerCupCakes.Users set Credit=? where Email =?";
+            String SQL = "UPDATE OlskerCupCakes.users set Credit=? where Email =?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, credit);
             ps.setString(2, email);
