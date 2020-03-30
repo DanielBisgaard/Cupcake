@@ -6,7 +6,8 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( String email, String password, String role , int credit) {
+    public User(String email, String password, String role , int credit) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
